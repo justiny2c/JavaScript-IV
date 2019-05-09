@@ -1,5 +1,3 @@
-// CODE here for your Lambda Classes
-
 class Person {
     constructor(fact){
         this.name = fact.name;
@@ -32,7 +30,7 @@ class Instructors extends Person{
     demo(){
         return `Today we are leaning about ${this.subject}.`
     };
-    grade(){
+    grade(subject){
         return `${this.name} receives a perfect score on ${subject}.`
     }
 }
@@ -51,7 +49,7 @@ class Students extends Person{
         return `${student.name} has submitted a PR for ${subject}.`
     }
     sprintChallenge(subject){
-        return `${this.name} has begun sprint challenge on ${subject}.`
+        return `${this.name} has begun Sprint Challenge on ${subject}.`
     }
 }
 
@@ -61,14 +59,45 @@ class ProjectManagers extends Instructors{
     this.gradClassName = facts.gradClassName;
     this.favInstructor = facts.favInstructor;
     }
-    standUp(name, channel){
-        return `${name} announces to ${channel}, @channel study times!`
+    standUp(channel){
+        return `${this.name} announces to ${channel}, @channel study times!`
     }
     debugsCode(name, subject){
         return `${name} debugs ${student.name}'s code on ${subject}`
     }
-
 }
+
+const fred = new Instructors({
+  name: 'Fred',
+  location: 'Bedrock',
+  age: 37,
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `Don't forget the homies`
+});
+
+const justin = new Students({
+    name: "Justin",
+    location: "SF",
+    age: 37,
+    previousBackground: "Bank of America",
+    className: "WEB20"
+});
+
+const jamie = new ProjectManagers({
+  name: "Jamie",
+  gradClassName: "WEB20: Jamie",
+  favInstructor: "Josh",
+})
+
+
+console.log(fred.name);
+console.log(fred.specialty);
+console.log(justin.sprintChallenge("Javascript 4"))
+
+console.log(jamie.standUp("Jamie's channel"))
+
+
 // #### Student
 
 // * Now we need some students!
